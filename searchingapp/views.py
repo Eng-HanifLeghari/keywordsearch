@@ -7,9 +7,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm, SignUpForm
 from django.contrib.auth.decorators import login_required
+from .models import Blog
 
 
-@login_required(login_url="/login/")
+# @login_required(login_url="/login/")
 def keyword_searching(request):
     if request.method == "POST":
         keyword_searching = request.POST.get('keyword_searching')
@@ -26,11 +27,11 @@ def keyword_searching(request):
             for key, value in suggestion.items():
                 if keyword_searching.lower() in value["@data"]:
                     keyword_list.append(value["@data"])
-        context = {'segment': 'index', 'keyword_list': keyword_list}
+        context = {'segment': 'keyword_searching', 'keyword_list': keyword_list}
 
     else:
-        context = {'segment': 'index'}
-    html_template = loader.get_template('home/index.html')
+        context = {'segment': 'keyword_searching'}
+    html_template = loader.get_template('apps/keyword_searching.html')
     return HttpResponse(html_template.render(context, request))
 
 
@@ -79,3 +80,14 @@ def register_user(request):
         form = SignUpForm()
 
     return render(request, "accounts/register.html", {"form": form, "msg": msg, "success": success})
+
+
+def blog(request):
+    blog = Blog.objects.all()
+    context = {'segment': blog}
+    html_template = loader.get_template('includes/blog.html')
+    return HttpResponse(html_template.render(context,request))
+
+
+def home(request):
+   return render(request, 'includes/home.html')

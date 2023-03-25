@@ -1,0 +1,63 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+	<link href="/static/assets/css/style.css" rel="stylesheet">
+
+<link rel="stylesheet" href="//cdn.tutorialjinni.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="//cdn.tutorialjinni.com/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+<link rel="stylesheet" href="//g.tutorialjinni.com/mojoaxel/bootstrap-select-country/dist/css/bootstrap-select-country.min.css" />
+
+<div class="section-1-container section-container">
+<div class="container-fluid">
+	<!-- Row for page header -->
+		<div class="row pt-5 pb-3 justify-content-center">
+ 			<div class="pcoded-content">
+        		<div class="pcoded-inner-content">
+					<form class="form-inline" id="keyword_id" action="" method="POST" novalidate>
+							{% csrf_token %}
+						 <div class="form-group px-1">
+					  		<input type="text" class="form-control filter-field" id="keyword_searching" name="keyword_searching" placeholder="Keyword Searching">
+				  		</div>
+
+						<select class="selectpicker countrypicker" data-flag="true"></select>
+
+						<div class="form-group">
+							 <div class="form-group">
+				   				<button type="submit" class="btn search-button">Search</button>
+							</div>
+						</div>
+	   		</form>
+			</div>
+ 		</div>
+		</div>
+		{% for keyword in keyword_list%}
+			{{ keyword }},
+		{% endfor %}
+		</div>
+	</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+	<!-- Atlantis DEMO methods, don't include it in your project! -->
+	<script src="/static/assets/js/setting-demo.js"></script>
+	<script src="/static/assets/js/demo.js"></script>
+
+	<script src="//cdn.tutorialjinni.com/jquery/3.6.1/jquery.min.js"></script>
+	<script src="//cdn.tutorialjinni.com/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+	<script src="//g.tutorialjinni.com/mojoaxel/bootstrap-select-country/dist/js/bootstrap-select-country.min.js"></script>
+<!--    <script src="/static/assets/js/intlTelInput.js"></script>-->
+
+<!--    <script>-->
+<!--		var input = document.querySelector("#keyword_searching");-->
+<!--		window.intlTelInput(input,{});-->
+<!--	</script>-->
+
+{% endblock javascripts %}
