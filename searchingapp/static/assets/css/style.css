@@ -1,0 +1,41 @@
+footer{
+    position: fixed;
+    bottom:0;
+    right: 0;
+    left: 0;
+}
+.main-panel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 323px);
+}
+.pcoded-inner-content form{
+    display: flex;
+    gap: 8px;
+}
+.navbar{
+    background: #043b5c;
+    padding: 15px 0;
+}
+.navbar-items{
+    display: flex;
+    gap: 50px;
+    justify-content: center !important;
+}
+.navbar .container{
+    justify-content: center;
+}
+
+.navbar-items a{
+    background: #999;
+    border-radius: 5px;
+    padding: 7px 15px;
+    color: #fff;
+    text-decoration: none;
+}
+.search-button{
+    padding: 5px 15px !important;
+    background: #999 !important;
+    color: #fff !important;
+}
