@@ -17,9 +17,11 @@
       <div class="container">
         <div class="navbar-items">
             <a class="active" href="{% url 'home' %}">Home</a>
-            <a href="#">Keyword Searching</a>
+            <a href="{% url 'searching'%}">Keyword Searching</a>
             <a href="{% url 'blog' %}">Blog</a>
-            <a href="#">Login</a>
+            <a href="{% url 'login'%}">Sign In</a>
+            <a href="{% url 'register'%}">Sign Up</a>
+            <a href="{% url 'register'%}">Sign Out</a>
         </div>
       </div>
     </nav>
