@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 class Blog(models.Model):
     name = models.CharField(max_length=255, null=True, blank=True)
-    image_field = models.ImageField(upload_to='media/')
+    image_field = models.ImageField(upload_to='media/upload_to/')
     description = models.TextField()
 
     def __str__(self):

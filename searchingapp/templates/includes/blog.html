@@ -7,37 +7,23 @@
                 <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="blog_left_sidebar">
                         <article class="blog_item">
+                            {% for blog in blogs %}
                             <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="assets/img/blog/single_blog_1.png" alt="">
+                                <img class="card-img rounded-0" src="/media/{{ blog.image_field }}" alt="">
                             </div>
 
                             <div class="blog_details">
                                 <a class="d-inline-block" href="single-blog.html">
-                                    <h2>Google inks pact for new 35-storey office</h2>
+                                    <h2>{{blog.name}}</h2>
                                 </a>
-                                <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                    he earth it first without heaven in place seed it second morning saying.</p>
+                                <p>{{blog.description}}.</p>
                             </div>
+                            {% endfor %}
                         </article>
-
-                        <article class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="assets/img/blog/single_blog_2.png" alt="">
-                            </div>
-
-                            <div class="blog_details">
-                                <a class="d-inline-block" href="single-blog.html">
-                                    <h2>Google inks pact for new 35-storey office</h2>
-                                </a>
-                                <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                    he earth it first without heaven in place seed it second morning saying.</p>
-                            </div>
-                        </article>
-
                       </div>
                     </div>
                 <div class="col-lg-4 mb-5 ">
-                                <img class="card-img rounded-0" src="/static/assets/img/hero/hero_right.png" alt="">
+                                <img class="card-img rounded-0" src="{{blog.image_field.url}}" alt="">
                 </div>
             </div>
 
